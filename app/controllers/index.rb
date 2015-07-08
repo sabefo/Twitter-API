@@ -1,6 +1,7 @@
 get '/' do
   # La siguiente linea hace render de la vista 
   # que esta en app/views/index.erb
+
   erb :index
 end
 
@@ -43,16 +44,18 @@ get '/:username' do
   erb :tweets
 end
 
-
-
-
-
-
-
-
-
-
-
+post '/tweet' do
+  @message = nil
+    # Recibe el input del usuario
+  tweet = params[:tweet]
+  begin
+    TWITTER.update!(tweet)
+    @message = "el tweet se envio con exito"
+  rescue
+    @message = "el tweet ya se envio antes"
+  end
+  erb :index
+end
 
 
 

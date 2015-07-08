@@ -1,4 +1,6 @@
 require 'rubygems'
+require 'oauth'
+require 'json'
 
 # Todas nuestras specs deben hacer un require 'spec_helper' (este archivo)
 
